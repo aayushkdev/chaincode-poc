@@ -20,19 +20,6 @@ Specifically:
 
 In other words, the contract code stays Fabric-style, and the adaptation work happens in the execution and state-access layers.
 
-## Project layout
-
-- `samplecc/`
-  The sample asset-transfer contract and the constructor that exposes it as `shim.Chaincode`.
-- `runner/`
-  The direct invocation path for `Init` and `Invoke`.
-- `shimadapter/`
-  The shim-compatible stub and the in-memory backend.
-- `cmd/poc/`
-  A runnable demo that executes a short asset-transfer flow and prints the resulting ledger state.
-- `poc_test.go`
-  Tests covering the adapter path with create, read, update, delete, transfer, and range-query behavior.
-
 ## What this proves
 
 - Fabric contract logic can remain unchanged.
@@ -61,7 +48,6 @@ The demo program in `cmd/poc` does the following:
 7. prints the final ledger snapshot as JSON
 
 The important part is that the contract is still using normal Fabric APIs while the backend is provided by the PoC adapter.
-
 
 
 ## Prerequisites
@@ -105,6 +91,8 @@ You will also see runner logs for:
 - `CreateAsset`
 - `TransferAsset`
 - `GetAllAssets`
+
+<img width="842" height="844" alt="image" src="https://github.com/user-attachments/assets/e82ea580-b26f-491f-92df-4efd3718e3be" />
 
 
 ## Next step
